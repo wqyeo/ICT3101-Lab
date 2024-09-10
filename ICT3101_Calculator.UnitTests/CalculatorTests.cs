@@ -60,6 +60,23 @@ namespace ICT3101_Calculator.UnitTests
             Assert.That(() => _calculator.Factorial(a), Throws.ArgumentException);
         }
 
+        [TestCase(10.24)]
+        [TestCase(5.23)]
+        [TestCase(442.1)]
+        [TestCase(0.0001)]
+        public void Factorial_WhenDecimalAsInputs_ResultsThrowArgumentException(double a)
+        {
+            Assert.That(() => _calculator.Factorial(a), Throws.ArgumentException);
+        }
+
+        [TestCase(213)]
+        public void Factorial_WhenLargeInputs_ResultsThrowOverflowException(double a)
+        {
+            Assert.Throws<OverflowException>(() => _calculator.Factorial(a));
+        }
+
+        [TestCase(0, 1)]
+        [TestCase(1, 1)]
         [TestCase(4, 24)]
         [TestCase(6, 720)]
         [TestCase(12, 479001600)]
@@ -67,6 +84,7 @@ namespace ICT3101_Calculator.UnitTests
         {
             Assert.That(_calculator.Factorial(input), Is.EqualTo(expected));
         }
+
 
 
         [TestCase(0, 0)]

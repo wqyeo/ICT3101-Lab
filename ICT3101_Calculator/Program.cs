@@ -39,6 +39,8 @@
                 Console.WriteLine("\ts - Subtract");
                 Console.WriteLine("\tm - Multiply");
                 Console.WriteLine("\td - Divide");
+                Console.WriteLine("\tf - Factorial (First Input)");
+
                 Console.Write("Your option? ");
                 string op = Console.ReadLine();
                 try
@@ -54,6 +56,7 @@
                 {
                     Console.WriteLine("Oh no! An exception occurred trying math.\n - Details: " + e.Message);
                 }
+
                 Console.WriteLine("------------------------\n");
                 // Wait for the user to respond before closing.
                 Console.Write("Press 'q' and Enter to quit the app, or press any other key and Enter to continue: ");
