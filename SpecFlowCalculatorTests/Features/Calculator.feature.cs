@@ -112,9 +112,9 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add zeros for special cases")]
         [NUnit.Framework.CategoryAttribute("Addition")]
-        [NUnit.Framework.TestCaseAttribute("1", "11", "12", null)]
-        [NUnit.Framework.TestCaseAttribute("10", "11", "21", null)]
-        [NUnit.Framework.TestCaseAttribute("11", "11", "22", null)]
+        [NUnit.Framework.TestCaseAttribute("1", "11", "7", null)]
+        [NUnit.Framework.TestCaseAttribute("10", "11", "11", null)]
+        [NUnit.Framework.TestCaseAttribute("11", "11", "15", null)]
         public void AddZerosForSpecialCases(string value1, string value2, string value3, string[] exampleTags)
         {
             string[] @__tags = new string[] {

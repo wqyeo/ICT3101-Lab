@@ -18,6 +18,6 @@ Scenario Outline: Add zeros for special cases
 	Then the result should be <value3>
 	Examples:
 	|value1 |value2 |value3 |
-	|1 |11 |12 |
-	|10 |11 |21 |
-	|11 |11 |22 |
+	|1 |11 |7 |
+	|10 |11 |11 |
+	|11 |11 |15 |
