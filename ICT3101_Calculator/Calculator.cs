@@ -169,5 +169,70 @@ namespace ICT3101_Calculator
 
             return nFactorial / (kFactorial * differenceFactorial);
         }
+
+        public double CalculateMTBF(double totalOperatingTime, int numberOfFailures)
+        {
+            if (numberOfFailures <= 0)
+            {
+                throw new ArgumentException("Number of failures must be greater than zero.");
+            }
+            return totalOperatingTime / numberOfFailures;
+        }
+
+        public double CalculateAvailability(double totalOperatingTime, int numberOfFailures, double meanTimeToRepair)
+        {
+            double mtbf = CalculateMTBF(totalOperatingTime, numberOfFailures);
+            return mtbf / (mtbf + meanTimeToRepair);
+        }
+
+        public double CalculateCurrentFailureIntensity(int totalFailures, double totalTime)
+        {
+            if (totalTime <= 0)
+            {
+                throw new ArgumentException("Total time must be greater than zero.");
+            }
+            return totalFailures / totalTime;
+        }
+
+        public double CalculateAverageExpectedFailures(double failureIntensity, double timePeriod)
+        {
+            if (timePeriod < 0)
+            {
+                throw new ArgumentException("Time period cannot be negative.");
+            }
+            return failureIntensity * timePeriod;
+        }
+
+        public double CalculateDefectDensity(int totalDefects, int totalLinesOfCode)
+        {
+            if (totalLinesOfCode <= 0)
+            {
+                throw new ArgumentException("Total lines of code must be greater than zero.");
+            }
+            return (double)totalDefects / totalLinesOfCode;
+        }
+
+        public double CalculateTotalSSI(int firstReleaseSSI, int secondReleaseSSI)
+        {
+            return firstReleaseSSI + secondReleaseSSI;
+        }
+
+        public double CalculateFailureIntensity(int totalFailures, double totalTime)
+        {
+            if (totalTime <= 0)
+            {
+                throw new ArgumentException("Total time must be greater than zero.");
+            }
+            return (double)totalFailures / totalTime;
+        }
+
+        public double CalculateExpectedFailures(double failureIntensity, double timePeriod)
+        {
+            if (timePeriod < 0)
+            {
+                throw new ArgumentException("Time period cannot be negative.");
+            }
+            return failureIntensity * timePeriod;
+        }
     }
 }
