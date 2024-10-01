@@ -1,0 +1,26 @@
+name: .NET
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      run: dotnet restore ./ICT3101_Calculator/ICT3101_Calculator.sln
+    - name: Build
+      run: dotnet build ./ICT3101_Calculator/ICT3101_Calculator.sln --no-restore
+    - name: Run Unit Tests
+      run: dotnet test ./ICT3101_Calculator/ICT3101_Calculator.UnitTests/ICT3101_Calculator.UnitTests.csproj --no-build --verbosity normal
+    - name: Run SpecFlow Tests
+      run: dotnet test ./ICT3101_Calculator/SpecFlowCalculatorTests/SpecFlowCalculatorTests.csproj --no-build --verbosity normal
